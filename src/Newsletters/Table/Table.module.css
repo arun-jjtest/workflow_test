@@ -1,0 +1,84 @@
+.table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.3;
+  text-align: left;
+  color: #444;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.table td {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 14px 0 10px 10px;
+  text-align: left;
+  white-space: normal;
+  overflow: visible;
+  box-sizing: content-box;
+  vertical-align: top;
+}
+
+.table td:first-child {
+  padding-left: 0;
+}
+
+.tableHead td {
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 0;
+  color: #b2b2b2;
+}
+
+.tableHead strong {
+  color: #000;
+}
+
+.missing {
+  color: #b2b2b2;
+}
+
+.loadMore {
+  margin-top: 24px;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.loadMoreButton {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 20px;
+  box-shadow: 0 0 0 1px inset #e5e5e5;
+  color: #000;
+  background: #fff;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 40px;
+}
+
+.deleteButton {
+  border: none;
+  outline: none;
+  padding: 0 8px;
+  background: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 25px;
+  height: 16px;
+  line-height: 0.4;
+}
+
+.deleteButton[disabled] {
+  cursor: auto;
+  pointer-events: none;
+  color: #ccc;
+}
+
+.deleteButton:hover {
+  color: black;
+}
