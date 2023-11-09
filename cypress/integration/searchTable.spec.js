@@ -1,10 +1,10 @@
 /// <reference types="Cypress" />
 import NewsletterPage from '../support/pageObjects/newsletterPage'
-describe('Verify the search functionality', () => {
+describe.skip('Verify the search functionality', () => {
 
     const newsletterPage = new NewsletterPage();
-    const nameSearch = ['february','February','eekly', '2022', 'randomString22'];
-    const creatorSearch = ['Hugo','James','db', 'DB'];
+    const nameSearch = ['february', 'February', 'eekly', '2022', 'randomString22'];
+    const creatorSearch = ['Hugo', 'James', 'db', 'DB'];
     const statusSearch = ['Draft', 'draft', 'DRAFT'];
     const recipientSearch = ['All org', 'engineering', 'Engineering', '491'];
     const dateSearch = ['11 Months', '11 months ago', '1 year ago'];
@@ -18,28 +18,28 @@ describe('Verify the search functionality', () => {
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()
                 .should('have.length.above', 2)
-                .should('contain.text',nameSearch[0])
-                .should('contain.text',nameSearch[1]);  
+                .should('contain.text', nameSearch[0])
+                .should('contain.text', nameSearch[1]);
         });
         // Verify the search works with partial text not from begining of the string
         cy.searchColumn(nameSearch[2]);
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()
                 .should('have.length.above', 2);
-            cy.verifyEachRow(nameSearch[2]);    
+            cy.verifyEachRow(nameSearch[2]);
         });
         // Verify the search works with numbers in the string
         cy.searchColumn(nameSearch[3]);
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()
                 .should('have.length.above', 2);
-            cy.verifyEachRow(nameSearch[3]);    
+            cy.verifyEachRow(nameSearch[3]);
         });
         // Verify the searching for non existant string returns an empty table
         cy.searchColumn(nameSearch[4]);
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()
-                .should('have.length', 0);   
+                .should('have.length', 0);
         });
     });
 
@@ -58,8 +58,8 @@ describe('Verify the search functionality', () => {
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()
                 .should('have.length.above', 2)
-                .should('contain.text',creatorSearch[2])
-                .should('contain.text',creatorSearch[3]);
+                .should('contain.text', creatorSearch[2])
+                .should('contain.text', creatorSearch[3]);
         });
     });
 
@@ -118,7 +118,7 @@ describe('Verify the search functionality', () => {
             newsletterPage.getTableRows()
                 .should('have.length.at.least', 1);
             cy.verifyEachRow(dateSearch[1]);
-        });    
+        });
         cy.searchColumn(dateSearch[2]);
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()

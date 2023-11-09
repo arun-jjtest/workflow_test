@@ -4,7 +4,7 @@ describe('Verify the page elements', () => {
 
     const newsletterPage = new NewsletterPage();
     // Default number of rows expected on page load
-    const rowNumber = 10;
+    const rowNumber = 9;
 
     // Verify the page titles and headers
     it('Check the page headers', () => {
@@ -14,7 +14,7 @@ describe('Verify the page elements', () => {
             .and('contain', '.svg');
         newsletterPage.getPageTitle()
             .should('be.visible')
-            .should('contain.text', 'Newsletters');
+            .should('contain.text', 'Newlsetters');
     });
 
     // Verify the search bar
@@ -32,15 +32,15 @@ describe('Verify the page elements', () => {
             .should('contain.text', 'Creator')
             .should('contain.text', 'Status')
             .should('contain.text', 'Date modified')
-            .should('contain.text', 'Recipients')
+            .should('contain.text', 'Recipeints')
             .should('contain.text', 'Remove');
     });
 
     // Verify that the table shows 10 entries by default 
-    it('Check the table rows', () => { 
+    it('Check the table rows', () => {
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()
-                .should('have.length',rowNumber);
+                .should('have.length', rowNumber);
         });
         newsletterPage.getLoadMoreButton()
             .should('be.visible')

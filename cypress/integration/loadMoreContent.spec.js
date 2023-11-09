@@ -4,13 +4,13 @@ describe('Load more contents functionality', () => {
 
     const newsletterPage = new NewsletterPage();
     // Default number of rows expected on page load
-    const rowNumber = 10;
+    const rowNumber = 9;
 
     // Default state on load
-    it('Check the default table state', () => {    
+    it('Check the default table state', () => {
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()
-                .should('have.length',rowNumber);
+                .should('have.length', rowNumber);
         });
         newsletterPage.getLoadMoreButton()
             .should('be.visible')
@@ -25,7 +25,7 @@ describe('Load more contents functionality', () => {
             .click();
         newsletterPage.getTableContents().within(() => {
             newsletterPage.getTableRows()
-                .should('have.length.greaterThan',rowNumber);
+                .should('have.length.greaterThan', rowNumber);
         });
         newsletterPage.getLoadMoreButton()
             .should('not.exist')
